@@ -28,14 +28,6 @@ function loadTexture(name, url) {
 init()
 
 function init() {
-    /**
-     * BGMのプリロード
-     */
-    const bgm = PIXI.sound.Sound.from({
-        url: './res/sound/n38.mp3',
-        preload: true,
-    });
-
     textures = new Map()
     
     loadTexture('enkan','./res/img/uyuyuhuh.png')
@@ -88,13 +80,36 @@ function init() {
     app.stage.addChild(enkan)
     app.stage.addChild(sansukumi)
 
-    app.stage.interactive = true
-    app.stage.on('pointertap', showMessage)
+    let btnStart = new PIXI.Text( '押す', {
+        fontFamily : 'Noto Sans CJK JP, 游ゴシック,Osaka',
+        fontWeight: 'bold',
+        lineHeight: 32,
+        fontSize: 128,
+        fill:0x888888,
+        align: 'center'
+    });
+    btnStart.x = app.screen.width / 2 - 128
+    btnStart.y = app.screen.height / 2 - 100
+    btnStart.alpha = 0.7
+    app.stage.addChild(btnStart)
+
+
+    btnStart.interactive = true
+    btnStart.on('pointertap', showMessage)
+
+    /**
+     * BGM
+     */
+    const bgm = PIXI.sound.Sound.from({
+        url: './res/sound/n38.mp3',
+        preload: true,
+    });
+
 
     // テキストウィンドウ表示
     function showMessage() {
-        app.stage.off('pointertap', showMessage)
-
+        btnStart.off('pointertap', showMessage)
+        btnStart.destroy()
         bgm.play()
 
         /**
