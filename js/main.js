@@ -2,7 +2,7 @@
  * pixiでゲームUIを作ってみる
  */
 
-// import '@babel/polyfill';
+import '@babel/polyfill';
 import { TextWindow } from "./UI.js"
 
 let w = 800
