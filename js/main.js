@@ -30,9 +30,9 @@ init()
 function init() {
     textures = new Map()
     
-    loadTexture('enkan','../res/img/uyuyuhuh.png')
-    loadTexture('background','../res/img/newspaper.jpg')
-    loadTexture('sansukumi','../res/img/asdf.png')
+    loadTexture('enkan','./res/img/uyuyuhuh.png')
+    loadTexture('background','./res/img/newspaper.jpg')
+    loadTexture('sansukumi','./res/img/asdf.png')
 
     // PIXIアプリケーション生成
     app = new PIXI.Application({
