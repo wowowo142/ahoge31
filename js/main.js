@@ -90,7 +90,7 @@ function init() {
          * BGM
          */
         const bgm = PIXI.sound.Sound.from({
-            url: '../res/sound/n38.mp3',
+            url: './res/sound/n38.mp3',
             autoPlay: true,
         });
 
