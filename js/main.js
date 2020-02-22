@@ -28,6 +28,14 @@ function loadTexture(name, url) {
 init()
 
 function init() {
+    /**
+     * BGMのプリロード
+     */
+    const bgm = PIXI.sound.Sound.from({
+        url: './res/sound/n38.mp3',
+        preload: true,
+    });
+
     textures = new Map()
     
     loadTexture('enkan','./res/img/uyuyuhuh.png')
@@ -49,6 +57,7 @@ function init() {
 
     // 日本語テキストのベースライン調整
     PIXI.TextMetrics.BASELINE_SYMBOL += "あ｜";
+    
 
     /**
      * 背景
@@ -82,18 +91,11 @@ function init() {
     app.stage.interactive = true
     app.stage.on('pointertap', showMessage)
 
-
+    // テキストウィンドウ表示
     function showMessage() {
         app.stage.off('pointertap', showMessage)
-            
-        /**
-         * BGM
-         */
-        const bgm = PIXI.sound.Sound.from({
-            url: './res/sound/n38.mp3',
-            autoPlay: true,
-        });
 
+        bgm.play()
 
         /**
          * UI
