@@ -6,5 +6,6 @@
 
 #wrapper #game canvas {
   width: 100% !important;
+  max-width: 100vw !important;
   height: auto !important;
 }
