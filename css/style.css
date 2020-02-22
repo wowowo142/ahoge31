@@ -1,0 +1,10 @@
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#wrapper #game canvas {
+  width: 100% !important;
+  height: auto !important;
+}
